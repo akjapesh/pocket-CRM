@@ -1,4 +1,10 @@
-import type { Account, Conversation } from "./types";
+import type {
+  Account,
+  Conversation,
+  ConversionDriver,
+  DiagnosticDriver,
+  RepPerformance,
+} from "./types";
 
 export const reps = [
   "Aarav Mehta",
@@ -6,6 +12,116 @@ export const reps = [
   "Rohan Gupta",
   "Sara Williams",
   "Vikram Reddy",
+];
+
+/** Team-level conversion (win rate) this period vs last, derived for the demo. */
+export const teamConversion = { current: 34, previous: 41 };
+
+/**
+ * The "why" behind the team conversion dip — behavioral drivers VoiceLog
+ * extracted across every conversation, not numbers a CRM could ever capture.
+ */
+export const teamDiagnostics: DiagnosticDriver[] = [
+  {
+    label: "Pricing / financing discussed early",
+    value: "38% of deals",
+    delta: -12,
+    impact: "negative",
+    detail: "Reps are surfacing price late, after the objection has hardened.",
+  },
+  {
+    label: "Competitor objections raised by buyers",
+    value: "in 47% of calls",
+    delta: 27,
+    impact: "negative",
+    detail: "Zoho & Patanjali credit-term mentions spiked vs last month.",
+  },
+  {
+    label: "Discovery questions per conversation",
+    value: "4.1 avg",
+    delta: -24,
+    impact: "negative",
+    detail: "Less qualification up front correlates with lower win rate.",
+  },
+  {
+    label: "Next step captured before call ends",
+    value: "71% of calls",
+    delta: -9,
+    impact: "negative",
+    detail: "Deals without a committed next step stall in pipeline.",
+  },
+];
+
+/** Behaviors ranked by how strongly they correlate with closing. */
+export const conversionDrivers: ConversionDriver[] = [
+  { behavior: "Discusses pricing / financing early", correlation: 0.62 },
+  { behavior: "Asks 3+ discovery questions", correlation: 0.55 },
+  { behavior: "Captures a committed next step", correlation: 0.48 },
+  { behavior: "Engages the economic buyer (not just champion)", correlation: 0.44 },
+  { behavior: "Handles competitor objection on the call", correlation: 0.39 },
+  { behavior: "Builds personal rapport (relationship score)", correlation: 0.31 },
+];
+
+export const repPerformance: RepPerformance[] = [
+  {
+    name: "Aarav Mehta",
+    region: "Bengaluru",
+    focus: "B2B SaaS",
+    deals: 18,
+    won: 9,
+    winRate: 50,
+    prevWinRate: 44,
+    behaviors: { discoveryQs: 6.2, pricingEarly: 72, objectionHandled: 81, nextStepCaptured: 88 },
+  },
+  {
+    name: "Sara Williams",
+    region: "Austin",
+    focus: "B2B SaaS",
+    deals: 14,
+    won: 6,
+    winRate: 43,
+    prevWinRate: 40,
+    behaviors: { discoveryQs: 5.4, pricingEarly: 64, objectionHandled: 74, nextStepCaptured: 79 },
+  },
+  {
+    name: "Vikram Reddy",
+    region: "Kanpur / Nashik",
+    focus: "Field Sales",
+    deals: 22,
+    won: 8,
+    winRate: 36,
+    prevWinRate: 47,
+    behaviors: { discoveryQs: 4.0, pricingEarly: 41, objectionHandled: 62, nextStepCaptured: 70 },
+  },
+  {
+    name: "Priya Nair",
+    region: "Lucknow",
+    focus: "Field Sales",
+    deals: 16,
+    won: 4,
+    winRate: 25,
+    prevWinRate: 38,
+    behaviors: { discoveryQs: 3.1, pricingEarly: 29, objectionHandled: 55, nextStepCaptured: 61 },
+  },
+  {
+    name: "Rohan Gupta",
+    region: "Lucknow (exited)",
+    focus: "Field Sales",
+    deals: 11,
+    won: 3,
+    winRate: 27,
+    prevWinRate: 33,
+    behaviors: { discoveryQs: 3.6, pricingEarly: 38, objectionHandled: 58, nextStepCaptured: 64 },
+  },
+];
+
+/** Top objections aggregated across all conversations (drives the "why"). */
+export const objectionTrends = [
+  { label: "Price / per-seat cost", count: 14, delta: 18 },
+  { label: "Credit / payment terms", count: 11, delta: 22 },
+  { label: "Competitor offering more", count: 9, delta: 27 },
+  { label: "Internal approval / budget cycle", count: 7, delta: 4 },
+  { label: "Security / compliance", count: 5, delta: -10 },
 ];
 
 export const conversations: Conversation[] = [

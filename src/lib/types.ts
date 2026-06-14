@@ -102,6 +102,45 @@ export interface Conversation {
   };
 }
 
+export interface RepPerformance {
+  name: string;
+  region: string;
+  focus: Segment;
+  deals: number;
+  won: number;
+  /** win rate this period, % */
+  winRate: number;
+  /** win rate last period, % (for trend) */
+  prevWinRate: number;
+  behaviors: {
+    /** avg discovery questions asked per conversation */
+    discoveryQs: number;
+    /** % of deals where pricing/financing was raised early */
+    pricingEarly: number;
+    /** % of objections handled vs left open */
+    objectionHandled: number;
+    /** % of conversations where a next step was captured */
+    nextStepCaptured: number;
+  };
+}
+
+export interface DiagnosticDriver {
+  label: string;
+  /** current value text */
+  value: string;
+  /** signed change, e.g. -12 (pp) or +27 (%) */
+  delta: number;
+  /** does this delta hurt or help conversion */
+  impact: "negative" | "positive";
+  detail: string;
+}
+
+export interface ConversionDriver {
+  behavior: string;
+  /** correlation with win, -1..1 */
+  correlation: number;
+}
+
 export interface Account {
   id: string;
   name: string;

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
   LayoutDashboard,
+  BarChart3,
   Radio,
   ArrowLeftRight,
   Mic,
@@ -14,6 +15,7 @@ import { AccountAvatar } from "./ui";
 
 const nav = [
   { href: "/", label: "Deal Health", icon: LayoutDashboard },
+  { href: "/intelligence", label: "Sales Intelligence", icon: BarChart3 },
   { href: "/capture", label: "Live Capture", icon: Radio },
   { href: "/handover/a4", label: "Handover", icon: ArrowLeftRight },
 ];
