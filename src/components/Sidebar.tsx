@@ -7,6 +7,7 @@ import {
   BarChart3,
   Radio,
   ArrowLeftRight,
+  Plug,
   Mic,
   Sparkles,
 } from "lucide-react";
@@ -18,6 +19,7 @@ const nav = [
   { href: "/intelligence", label: "Sales Intelligence", icon: BarChart3 },
   { href: "/capture", label: "Live Capture", icon: Radio },
   { href: "/handover/a4", label: "Handover", icon: ArrowLeftRight },
+  { href: "/integrations", label: "Integrations", icon: Plug },
 ];
 
 export function Sidebar() {
