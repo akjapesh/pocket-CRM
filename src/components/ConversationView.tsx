@@ -166,7 +166,7 @@ export function ConversationView({ convo }: { convo: Conversation }) {
           </div>
         </Card>
 
-        <CrmPushCard target={convo.crmPush.target} payload={convo.crmPush.payload} />
+        <CrmPushCard convo={convo} />
       </div>
     </div>
   );

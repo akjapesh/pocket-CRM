@@ -260,6 +260,20 @@ export function IntegrationsView() {
                       </select>
                     </div>
                   ))}
+                  <div className="rounded-lg border border-[var(--accent-2)]/25 bg-[var(--accent-2)]/8 p-3">
+                    <div className="text-[11px] font-semibold text-[#7ff0d8]">
+                      Custom properties VoiceLog will create in {active.name}
+                    </div>
+                    <div className="mt-1.5 flex flex-wrap gap-1.5 font-mono text-[10.5px] text-[var(--text-dim)]">
+                      {["voicelog_role", "voicelog_relationship_score", "voicelog_competitor", "voicelog_objection", "voicelog_sentiment"].map(
+                        (p) => (
+                          <span key={p} className="rounded bg-white/5 px-1.5 py-0.5">
+                            {p}
+                          </span>
+                        ),
+                      )}
+                    </div>
+                  </div>
                   <div className="flex justify-between pt-2">
                     <BackBtn onClick={() => setStep("authorize")} />
                     <NextBtn onClick={() => setStep("sync")} label="Continue" />
